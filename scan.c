@@ -1,4 +1,5 @@
-//网上找到的读取txt的方法
+//scan 
+
 #include <stdio.h>
 #include <string.h>
 
@@ -7,8 +8,7 @@
  * You could implement your code function here.
  */
 int handleline(int linenum, char * text) {
-    printf("line[%d]=[%s]\n", linenum, text);
-    return 0;
+
 }
 
 int readtext(const char * filename) {
