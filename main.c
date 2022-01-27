@@ -3,27 +3,32 @@
 #include<string.h>
 #include<stdlib.h>
 long long int ip1(char *oip1){
+    int a[5]={0};
     int l;
-    int a[4];
+    
     int f=0;
     int flag=0;
     int p[32];
     long long int H=0;
     long long int M=1;
+
+for(int i=0;oip1[i]!='\0';i++){
     
-for(int i=0;oip1[i]!='\n';i++){
+
     if(flag==0){
     a[f]=oip1[i]-'0';
     flag=1;}
     else {
        if(oip1[i]!='.'){
         a[f]=a[f]*10+oip1[i]-'0';
+        
+        
 }       else{
             f++;
             flag=0;
-} 
+            }      
     }
-
+  
 }
 
 for(l=0;a[3]!=0;l++){
@@ -67,7 +72,9 @@ return H;
 }
 //输入IP地址转出十进制
 
-
+int main(){
+    printf("%lld",ip1("16.36.54.0"));
+}
 
 char *ruletxt;
 
