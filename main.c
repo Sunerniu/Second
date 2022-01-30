@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define sz 100010
+#define MAX_LINE 1024
 
 long long int ip1(char *oip1){
     int l;
-    int a[sz]={0};
+    int a[1024]={0};
     int f=0;
     int flag=0;
-    int p[sz]={0};
+    int p[1024]={0};
     long long int H=0;
     long long int M=1;
 
@@ -67,18 +67,18 @@ return H;
 //输入IP地址转出十进制
 long long int R(long long int *P)
 {long long int li=-1;
- char rule[sz];  
+ char rule[MAX_LINE];  
  FILE *fp;        
  int len;             
 fp = fopen("rule1.txt","r");
- while(fgets(rule,sz,fp) != NULL)
+ while(fgets(rule,MAX_LINE,fp) != NULL)
  {  ++li;
     int u=0;
     int i=1;
     int flag=0;
-    char rule1[sz]={0};
-    char rule2[sz]={0}; 
-    char dk[sz]={0};
+    char rule1[1024]={0};
+    char rule2[1024]={0}; 
+    char dk[1024]={0};
     int ra1=0,ra2=0,ra3=0,ra4=0;
     
     for(i;rule[i]!='/';i++)
@@ -140,13 +140,13 @@ if(P[0]==u1){
         if(P[2]>=ra1&&P[2]<=ra2){
             if(P[3]>=ra3&&P[3]<=ra4){
                 if(dk[8]=='0'){
-                    
+                    fclose(fp);  
                     return li;
                      
                 }
                 else {
                     if(y==P[4]){
-                            
+                       fclose(fp);    
                       return li;
                     }
                 }
@@ -160,13 +160,13 @@ if(P[0]==u1){
 
 
  }
-
+fclose(fp);  
  return -1;
 }
-
+//规则集转换并且与输入的数据匹配
 void packet(char *pp){
-   char packet[9999]; 
-    long long int O[sz];
+   char packet[1024]; 
+    long long int O[1024];
    FILE *fp;
    FILE *ii=fopen("res.txt","w");          
    int len;
@@ -186,13 +186,14 @@ void packet(char *pp){
     fprintf(ii,"%lld\n",K);
  } 
 }
-
+//数据集的输入a
 
 
 
 int main(){  
+    char pac[10];
+    scanf("%s",pac);
+    packet(pac);
     
-    packet("packet1.txt");
-
     return 0;
 }
